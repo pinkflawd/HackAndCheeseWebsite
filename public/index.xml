@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Hack &amp; Cheese Home</title>
+    <link>http://localhost:1313/</link>
+    <description>Recent content on Hack &amp; Cheese Home</description>
+    <generator>Hugo -- 0.147.9</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 05 Jul 2025 09:33:52 -0400</lastBuildDate>
+    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Othertestpost</title>
+      <link>http://localhost:1313/posts/othertestpost/</link>
+      <pubDate>Sat, 05 Jul 2025 09:33:52 -0400</pubDate>
+      <guid>http://localhost:1313/posts/othertestpost/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Testpost</title>
+      <link>http://localhost:1313/posts/testpost/</link>
+      <pubDate>Sat, 05 Jul 2025 09:30:09 -0400</pubDate>
+      <guid>http://localhost:1313/posts/testpost/</guid>
+      <description>&lt;p&gt;This is a test page, and &lt;strong&gt;it is bold&lt;/strong&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>About</title>
+      <link>http://localhost:1313/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/about/</guid>
+      <description>who am I</description>
+    </item>
+    <item>
+      <title>Consulting</title>
+      <link>http://localhost:1313/consulting/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/consulting/</guid>
+      <description>consulting I can offer</description>
+    </item>
+    <item>
+      <title>Contact</title>
+      <link>http://localhost:1313/contact/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/contact/</guid>
+      <description>contact information</description>
+    </item>
+    <item>
+      <title>Trainings</title>
+      <link>http://localhost:1313/trainings/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/trainings/</guid>
+      <description>what trainings can I offer</description>
+    </item>
+  </channel>
+</rss>

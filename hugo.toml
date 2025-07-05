@@ -1,0 +1,78 @@
+baseURL = 'https://hackandcheese.com/'
+languageCode = 'en-us'
+title = 'Hack & Cheese Home'
+theme = 'papermod'
+
+[params.profileMode]
+enabled = true
+title = 'Hack & Cheese Security Consulting LLC'
+subtitle = "Reverse Engineering Consulting & Trainings"
+imageUrl = "/images/croppedlogo.png"
+imageTitle = "Hack & Cheese Logo"
+imageWidth = 120
+imageHeight = 120
+
+  [[params.profileMode.buttons]]
+  name = "About"
+  url = "/about/"
+  
+  [[params.profileMode.buttons]]
+  name = "Posts"
+  url = "/archives/"
+
+  [[params.profileMode.buttons]]
+  name = "Consulting"
+  url = "/consulting/"
+  
+  [[params.profileMode.buttons]]
+  name = "Trainings"
+  url = "/trainings/"
+  
+  [[params.profileMode.buttons]]
+  name = "Contact"
+  url = "/contact/"
+
+[[params.socialIcons]]
+name = "Twitter"
+url = "https://twitter.com/pinkflawd"
+
+[[params.socialIcons]]
+name = "Bluesky"
+url = "https://bsky.app/profile/pinkflawd.bsky.social"
+
+[[params.socialIcons]]
+name = "Github"
+url = "https://github.com/pinkflawd"
+
+[params]
+ShowShareButtons = true
+
+[[menu.main]]
+identifier = "about"
+name = "about"
+url = "/about/"
+weight = 10
+
+[[menu.main]]
+identifier = "posts"
+name = "posts"
+url = "/archives/"
+weight = 20
+
+[[menu.main]]
+identifier = "consulting"
+name = "consulting"
+url = "/consulting/"
+weight = 30
+
+[[menu.main]]
+identifier = "trainings"
+name = "trainings"
+url = "/trainings/"
+weight = 40
+
+[[menu.main]]
+identifier = "contact"
+name = "contact"
+url = "/contact/"
+weight = 50
