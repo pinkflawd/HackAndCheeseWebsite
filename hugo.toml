@@ -3,6 +3,10 @@ languageCode = 'en-us'
 title = 'Hack & Cheese Home'
 theme = 'papermod'
 
+[caches]
+  [caches.images]
+    dir = ':cacheDir/images'
+
 [params.profileMode]
 enabled = true
 title = 'Hack & Cheese Security Consulting LLC'
