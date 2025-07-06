@@ -18,23 +18,23 @@ imageHeight = 120
 
   [[params.profileMode.buttons]]
   name = "About"
-  url = "/about/"
+  url = "about/"
   
   [[params.profileMode.buttons]]
   name = "Posts"
-  url = "/archives/"
+  url = "archives/"
 
   [[params.profileMode.buttons]]
   name = "Consulting"
-  url = "/consulting/"
+  url = "consulting/"
   
   [[params.profileMode.buttons]]
   name = "Trainings"
-  url = "/trainings/"
+  url = "trainings/"
   
   [[params.profileMode.buttons]]
   name = "Contact"
-  url = "/contact/"
+  url = "contact/"
 
 [[params.socialIcons]]
 name = "Twitter"
