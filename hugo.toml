@@ -2,6 +2,7 @@ baseURL = 'https://hackandcheese.com/'
 languageCode = 'en-us'
 title = 'Hack & Cheese Home'
 theme = 'papermod'
+relativeURLs = true
 
 [caches]
   [caches.images]
