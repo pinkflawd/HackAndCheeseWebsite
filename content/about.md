@@ -6,7 +6,7 @@ summary: who am I
 ---
 
 
-![Cheese](images/croppedlogo.png)
+![Cheese](../images/croppedlogo.png)
 
 Hello and welcome! My name is Marion Marschalek, I'm a security engineer 
 with a deep passion for reverse engineering, and have been in this field 
