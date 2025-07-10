@@ -5,6 +5,7 @@ url: "/about/"
 summary: who am I
 ---
 
+![Testcheese](../images/croppedlogo.png)
 
 Hello and welcome! My name is Marion Marschalek, I'm a security engineer 
 with a deep passion for reverse engineering, and have been in this field 
@@ -23,4 +24,4 @@ off Linux focussed cloud attacks.  <br>
 In February 2025 I decided to venture out on my own, and here we are,
 Hack & Cheese was born. Hack & Cheese is my professional outlet to offer
 reverse engineering consulting and training services. Contact me with any
-inquiries. 
+inquiries. I'm working out of Portland, Oregon, United States.
