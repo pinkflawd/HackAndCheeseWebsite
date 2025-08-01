@@ -5,13 +5,14 @@ url: "/about/"
 summary: who am I
 ---
 
-![Testcheese](../images/croppedlogo.png)
+![me](../images/running.png)
 
 Hello and welcome! My name is Marion Marschalek, I'm a security engineer 
 with a deep passion for reverse engineering, and have been in this field 
 since 2011. I hold a bachelors and masters degree in Information Security 
 from University of Applied Sciences St. Poelten, Austria. Thats also where 
-I'm from, Austria. Its a beautiful country, you should go visit. 
+I'm from, Austria. Its a beautiful country, you should go visit.
+I'm also a long distance runner, see above. I like challenges. 
 I started my career in anti-virus with the Austrian AV company Ikarus. 
 As a malware analyst I discovered my passion for binary analysis, learned
 how reverse engineering malware in reality is like building puzzles. I 
