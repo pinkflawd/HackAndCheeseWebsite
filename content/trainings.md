@@ -33,29 +33,29 @@ Day 1 \
 Familiarization with analysis environment using introduction malware\
 Linux specific reverse engineering concepts, Linux OS internals and ELF file format\
 Compiling, linking, loading, process execution\
-Practice learned skills on a selection of DDoS bots, bitcoin miners, and ransomware, the Linux most-wanted\
+Practice learned skills on a selection of DDoS bots, bitcoin miners, and ransomware, the Linux most-wanted
 
 Day 2 \
 Dynamic analysis of malicious software on Linux, tool internals and techniques\
 C++ reverse engineering with Linux malware examples from real world attacks\
-Go and Rust reverse engineering of Linux malware, such as Luna and BlackCat ransomwares\
+Go and Rust reverse engineering of Linux malware, such as Luna and BlackCat ransomwares
 
 Day 3 \
 Linux analysis evasion tricks, packers, process injection techniques\
 Hands on unpacking and evasive sample analysis\
-Linux rootkits and eBPF based malware such as Diamorphine, Phalanx2, and Symbiote\
+Linux rootkits and eBPF based malware such as Diamorphine, Phalanx2, and Symbiote
 
 Day 4 \
 Targeted Linux malware samples, cases like Turla and BVP47\
 Advanced analysis automation techniques using eBPF and Frida\
-Hands-on guided and self-guided reverse engineering of advanced samples\
+Hands-on guided and self-guided reverse engineering of advanced samples
 
 #### Key Learning Objectives
 
 Proficiency in Linux binary analysis knowledge\
 Understanding Linux malware in-depth\
 Learning Linux analysis evasion techniques\
-Advanced analysis automation techniques\
+Advanced analysis automation techniques
 
 ### Introduction to Binary Reverse Engineering 
 1-day and 2-day options, details coming soon!
