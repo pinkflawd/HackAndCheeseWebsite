@@ -12,8 +12,8 @@ with a deep passion for reverse engineering, and have been in this field
 since 2011. I hold a bachelors and masters degree in Information Security 
 from University of Applied Sciences St. Poelten, Austria. Thats also where 
 I'm from, Austria. Its a beautiful country, you should go visit.
-I'm also a long distance runner, see above. I like challenges. 
-I started my career in anti-virus with the Austrian AV company Ikarus. 
+I'm also a long distance runner, see above. I like challenges. \
+I started my career in anti-virus with the Austrian AV company Ikarus Security Software. 
 As a malware analyst I discovered my passion for binary analysis, learned
 how reverse engineering malware in reality is like building puzzles. I 
 also spent time in incident response, and later switched to offensive 
@@ -21,7 +21,7 @@ security and cloud security. I spent three wonderful years working for
 Intel's STORM team in Oregon, learning about vulnerabilities on a 
 hardware level. I joined AWS in 2020, to focus on threat detection in 
 the cloud, and worked with the AWS GuardDuty team for four years fending
-off Linux focussed cloud attacks.  <br>
+off Linux focussed cloud attacks.  \
 In February 2025 I decided to venture out on my own, and here we are,
 Hack & Cheese was born. Hack & Cheese is my professional outlet to offer
 reverse engineering consulting and training services. Contact me with any
