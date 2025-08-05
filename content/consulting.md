@@ -26,5 +26,6 @@ help you with assessments of existing solutions and design of new ones.
 ### Trainings and Education
 
 I'm a passionate teacher and have been teaching reverse engineering and malware analysis continuously since
-2012, including a University course, countless free classes under the banner of BlackHoodie, and various 
-industry trainings at company sites and conferences. Please check out the Training section on this website. 
+2012, including a University course, countless free classes under the banner of the BlackHoodie non-profit, 
+and various industry trainings, private and at conferences. Please check out the Training section to see what
+I have available. 
