@@ -32,11 +32,11 @@ So we have ourselves a simple yet effective dynamic analysis evasion, since the 
 
 Promptly following the tracer evasion the malware continues to deobfuscate strings that are used throughout the binary. What I mean by obfuscated can be seen in the next graphic, that shows a string in the data section that I’ve named `help_menu`, which is completely unreadable at this point.
 
-![Obfuscated String](../images/blog1/2_obfuscatedstring.png)  
+![Obfuscated String](../../images/blog1/2_obfuscatedstring.png)  
 
 If we check out where this string is being treated in the _string_deobfuscation_ function we find a little loop with a rolling xor deobfuscation routine. EAX here holds the hard coded value of 39h, or 57, and this value is used as a base value to xor the obfuscated strings with, byte by byte, until we hit a null byte. Super simple, and this would be easily scripted if we wanted to automate string deobfuscation. As it turns out, almost all strings in this binary are deobfuscated using the same routine and base value, and within the same function.
 
-![Deobfuscation](../images/blog1/3_deobfuscation.png)
+![Deobfuscation](../../images/blog1/3_deobfuscation.png)
 
 Since I am lazy however, and only script RE tooling once I absolutely have to, what I did is simply the following; I ran the debugger through all the string deobfuscation loops, let IDAPro auto-rename the global offsets of said strings, and made myself a dump file of the binary’s data section with readable strings and name. Doing so I ended up with an .idb with named string references, and a text file with readable strings where I could look up what a given string reference refers to.
 
@@ -46,13 +46,13 @@ Quick and dirty I would call that, but with only a few dozen string references I
 
 One important item that aids analysis significantly is the help menu mentioned prior. I don’t know when malware started shipping with help menus, but it is certainly appreciated. This list of options explains a range of functionality implemented in the code. Also, most malware is relatively simple software. That means there usually is some central orchestration function from where most of the interesting sub graphs branch off. That can be main, or as it goes in this case, it is the argv parsing functions that evaluates command line arguments.
 
-![](../images/blog1/4_helpmenu.png)  
+![help](../../images/blog1/4_helpmenu.png)  
 
 From what we know so far a few questions arise. The prime ransomware question would be, when it says “crypts files”, what files are we encrypting and how, with what key(s)? I’ll talk extensively about that later. Another interesting bit are the log/nolog options, like what do you mean, help menu wasn’t enough we’re also writing a log. Juicy. And then it says daemonize and wipe, other features we’ll explore just because I'm curious.
 
 A quick look at the structure of the argv parsing function shows this intriguing switch-case graph. In reality this is the function I started with when analyzing the sample. We see that its a switch-case graph because of all the basic blocks displayed in parallel (the cases), descending from one single block (the switch). We have ourselves a parser, and parsers are interesting since they make decisions based on input. The input here is the command line arguments, which control the configuration of the malware process, for instance the minimum size of a file to encrypt, the log mode, or the list of extensions the malware seeks to encrypt. See help menu, and trust me that the code matches :)
 
-![ARGV Parsing](../images/blog1/5_argvparsing.png)  
+![ARGV Parsing](../../images/blog1/5_argvparsing.png)  
 
 ## Logging Feature
 
@@ -118,7 +118,7 @@ We know that libsodium exists in this binary because of strings. Hold on, I said
 
 As a higher level note, one does not want to go reverse engineering cryptographic code if one does not absolutely have to. Its much more convenient to identify said code in a library, put a function name on it, and be done with it. And to take another step back, my crypto spidey senses generally tingle when I see functions with lots of arithmetic operations and little branches or memory writes. I mean, look at this next graphic, would you want to try and figure out what's happening here?
 
-![Crypto Code](../images/blog1/6_cryptocode.png)  
+![Crypto Code](../../images/blog1/6_cryptocode.png)  
 
 Cool, so at this point we know there is crypto code, and we know libsodium code is in the binary. By working my way through the file encryption routine I was able to identify three functions that needed naming, that I did not want to reverse engineer. The next thing that comes to mind is automated library code detection. We have a library name, and we’ve got FLIRT. FLIRT stands for Fast Library Identification and Recognition Technology, and it is IDAPro’s way of naming library code. The other RE frameworks we love so much, BinaryNinja, Ghidra, radare2, etc., all have their own way to facilitate library code detection. But then.. go grab libsodium, build it, create signatures (super easy with FLIRT), load those signatures on that malware binary and – nothing. Out of hundreds of library functions we get three named. With an older version of libsodium we recover fourteen names. Neither of those helps with the identification of the three I mentioned that I needed.
 
@@ -134,22 +134,22 @@ Thats exactly how I identified the first mystery function, so long story short, 
 
 Libsodium vs. malware:
 
-![String in libsodium](../images/blog1/7_sysrandomlibsodium.png)  
-![String in malware](../images/blog1/8_sysrandommalware.png)  
+![String in libsodium](../../images/blog1/7_sysrandomlibsodium.png)  
+![String in malware](../../images/blog1/8_sysrandommalware.png)  
 
 That string is the name of a function, which if we walk back through cross references we find in the GOT table, no clue why at this point but it doesn’t matter since what we’re after is to identify the list of functions that reference this GOT entry and name them in the malware, as according to the names in libsodium. If there is only one cross reference walking up the subgraph is easy, if we have a list of candidates figuring out the right path requires more finesse.
 
 Libsodium vs. malware:
 
-![Xref libsodium](../images/blog1/9_xreflibsodium.png) ![Xref malware](../images/blog1/10_xrefmalware.png)  
+![Xref libsodium](../../images/blog1/9_xreflibsodium.png) ![Xref malware](../images/blog1/10_xrefmalware.png)  
 
 With a short list of five candidates its a simple task of visual comparison of function graphs to assign names in the malware. In fact I found the one I was looking for (note: one level below the mystery function in the malware’s encryption routine) rather quickly and it turned out to be libsodium's `randombytes_stir`. See the two functions in comparison below, libsodium vs. malware. Very minor differences, but enough to thwart automated library code detection, and interestingly I’m quite sure that these differences stem from the compiler, not actual source code differences.
 
 Libsodium vs. malware:
 
-![randombytes_stir libsodium](../images/blog1/11_stirlibsodium.png)  
+![randombytes_stir libsodium](../../images/blog1/11_stirlibsodium.png)  
 
-![randombytes_stir malware](../images/blog1/12_stirmalware.png)  
+![randombytes_stir malware](../../images/blog1/12_stirmalware.png)  
   
 From `randombytes_stir` there is one more level up to the mystery function called in the malware, and with the same comparison method we find the mystery function – `randombytes_buf`. The comparison method includes looking at the function’s control flow, but also at cross references to globals and other functions. In fact those references turn out crucial, a good strategy is to name as many things as possible; globals, functions, other references. It is much more likely a compiler changes the instruction makeup or control flow of a function than it is to remove or reorder references. So, with sufficient cross references in a function we get a high level fingerprint of a function. Then, by trial-and-error naming of whatever we can deterministically name we inch closer and closer to the naming goal of higher level functions. In the case of `randombytes_buf` this was fairly simple, where the method really comes into play is with the second mystery function.
 
@@ -165,13 +165,13 @@ Before we talk about number three, lets see what we got so far. The malware’s 
 
 In short, what is happening that the malware creates a unique 128 bit encryption key for every file, and attaches that unique encryption key to the encrypted file in a public-key encrypted box. Nifty, and apparently quite common in modern day ransomware. This technique allows the use of symmetric encryption while not leaving key material sitting in memory for forensic analysts to grab and defeat the whole ransomware attack. Sure, they can go and dump process memory during encryption, but all they’ll get is the current unique key for one file, and one file only.
 
-![Crypto Box](../images/blog1/13_cryptobox.png)
+![Crypto Box](../../images/blog1/13_cryptobox.png)
 
 So far so good, we know where the encryption key comes from, how big it is, we have the third mystery function which we know must be the actual encryption, cause guess what its arguments include the encryption key and two pointers to the file to-be-encrypted. And, we see in that function that we read from one pointer, magic happens, and then we write to the other pointer. Same file.
 
 But what is this function, what's the algorithm, I now need to know. The algorithm is really just two functions, no other function references, but with references to globals, to five tables. One table of 256 bytes, and four tables of 1024 bytes. The 256-byte table it turns out can be found on the internet as [the Rijndael s-box](https://en.wikipedia.org/wiki/Rijndael_S-box) that AES is using. Cool, AES also typically uses 128-bit keys. But, at this point I still didn’t know for sure this is AES.
 
-![Rijndael S-Box](../images/blog1/14_rijndaelsbox.png)
+![Rijndael S-Box](../../images/blog1/14_rijndaelsbox.png)
 
 That is where I got stuck, the algorithm looked nothing like libsodium’s AES implementation, or the AES code I could find on the interwebs. Mostly I was confused what's with those four rather large tables. Enter Jean-Philippe Aumasson, or JP, who I ran into at Blackhat recently. Upon explaining my issue it took him only a few minutes to dig up this version of AES: [https://github.com/pjok1122/AES-Optimization/blob/master/aes.c](https://github.com/pjok1122/AES-Optimization/blob/master/aes.c). Turns out the four tables of 1024 bytes are really four tables with 256 4-byte integers, and specifically the tables in _this_ aes.c are almost identical to the ones in my malware. Boom. This is an optimized version of AES that uses lookup tables, so called T-tables. Thanks a million JP, that’s why I crown you with the honorary title of cryptographic advisor at Hack & Cheese!
 
