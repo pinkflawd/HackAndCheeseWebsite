@@ -26,7 +26,7 @@ Before I start things off, a special Thank You to the honorary cryptography advi
 
 What initially caught my eye about this sample is its use of ptrace. Ptrace is a Linux system call that allows tracing of other processes, and in malware it is oftentimes used in anti-analysis techniques. Our sample at hand tries to use `PTRACE_ATTACH` to attach to its own parent process. Should this attempt fail the malware will exit with status 1 (the green branch in graphic). And, it just so turns out that if a process is being traced by a debugger, then the child can’t attach to the parent as it normally would, because it is already being traced. Nothing sophisticated, but certainly interesting.
 
-![PTRACE_ATTACH](../images/blog1/1_ptraceattach.png)  
+![PTRACE_ATTACH](../../images/blog1/1_ptraceattach.png)  
 
 So we have ourselves a simple yet effective dynamic analysis evasion, since the most prominent Linux tracing tools (think gdb, strace for instance) rely on ptrace. What do we do if we encounter this technique while debugging? Simple, we steer the debugger to the conditional jump instruction and flip the zero flag, debugger 101. Or go patching the jump to an unconditional jump in the binary itself, problem solved forever.
 
