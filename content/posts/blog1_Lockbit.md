@@ -1,7 +1,7 @@
 +++
 date = '2025-08-14T09:30:09-04:00'
 draft = false
-title = 'Reverse Engineering of Lockbit's Linux ESXi Variant'
+title = 'Reverse Engineering of the Lockbit Linux ESXi Variant'
 +++
 
 Welcome to the Hack & Cheese blog! We’re diving straight in with a recent reverse engineering adventure that I did for fun. I spotted a Linux malware sample a while back that is reasonably complex, and a nice challenge to analyze. I’m talking about Linux ransomware of the Lockbit family, that is geared towards attacks on ESXi servers.
