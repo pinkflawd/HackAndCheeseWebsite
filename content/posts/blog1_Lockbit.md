@@ -141,7 +141,7 @@ That string is the name of a function, which if we walk back through cross refer
 
 Libsodium vs. malware:
 
-![Xref libsodium](../../images/blog1/9_xreflibsodium.png) ![Xref malware](../images/blog1/10_xrefmalware.png)  
+![Xref libsodium](../../images/blog1/9_xreflibsodium.png) ![Xref malware](../../images/blog1/10_xrefmalware.png)  
 
 With a short list of five candidates its a simple task of visual comparison of function graphs to assign names in the malware. In fact I found the one I was looking for (note: one level below the mystery function in the malware’s encryption routine) rather quickly and it turned out to be libsodium's `randombytes_stir`. See the two functions in comparison below, libsodium vs. malware. Very minor differences, but enough to thwart automated library code detection, and interestingly I’m quite sure that these differences stem from the compiler, not actual source code differences.
 
