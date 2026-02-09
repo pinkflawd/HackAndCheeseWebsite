@@ -4,8 +4,6 @@ draft = false
 title = 'Binary PewPew Map'
 +++
 
-# Binary PewPew Map
-
 Why, hello there!
 
 Meet **Binary PewPew Map**, my latest, and currently only pet project! **TL;DR** here is the [GitHub link](https://github.com/pinkflawd/BinaryPewPewMap)
